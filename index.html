@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aung Myat Thein · Geologist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f9;
+            color: #1a2a3a;
+            line-height: 1.75;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+        /* ---------- TOP TAB NAVIGATION ---------- */
+        .tab-nav {
+            background: #0d2137;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+        .tab-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            color: #fff;
+            padding: 12px 0;
+        }
+        .logo span { color: #6eb8f0; }
+        .tab-links { display: flex; gap: 4px; flex-wrap: wrap; }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: #b8cde0;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 10px 22px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+        }
+        .tab-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+        .tab-btn.active {
+            color: #fff;
+            background: #1e4d7a;
+            box-shadow: 0 4px 12px rgba(30, 77, 122, 0.4);
+        }
+
+        /* ---------- TAB PANELS ---------- */
+        .tab-panel { display: none; animation: fadeUp 0.35s ease; }
+        .tab-panel.active { display: block; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------- HERO ---------- */
+        .hero-home {
+            background: linear-gradient(145deg, #0b2a4e 0%, #123b63 100%);
+            color: #fff;
+            padding: 56px 0 64px;
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 48px;
+        }
+        .hero-home .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 48px;
+        }
+        .hero-home .text { flex: 1.4; min-width: 300px; }
+        .hero-home .text .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #d2e5fa;
+        }
+        .hero-home h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .hero-home h1 span { color: #8ec4f0; }
+        .hero-home .subhead {
+            font-size: 1.15rem;
+            color: #c5daf0;
+            max-width: 620px;
+            margin-bottom: 28px;
+            font-weight: 300;
+        }
+        .hero-home .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px 32px;
+            font-size: 0.95rem;
+            color: #d2e5fa;
+        }
+        .hero-home .contact-row a,
+        .hero-home .contact-row span {
+            color: #d2e5fa;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        .hero-home .contact-row a:hover { color: #fff; text-decoration: underline; }
+
+        .hero-photo { flex: 1; min-width: 220px; display: flex; justify-content: center; }
+        .hero-photo .photo-frame {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #1e4d7a, #0d2c4a);
+            padding: 6px;
+            box-shadow: 0 24px 40px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero-photo .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background: #1e3a5f;
+            display: block;
+        }
+
+        /* ---------- BIO / OBJECTIVE ---------- */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+        .bio-card {
+            background: #fff;
+            border-radius: 28px;
+            padding: 36px 32px;
+            box-shadow: 0 12px 32px rgba(0, 20, 40, 0.06);
+            transition: transform 0.2s, box-shadow 0.3s;
+            border: 1px solid #e2ecf5;
+        }
+        .bio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -8px rgba(0, 40, 80, 0.12);
+        }
+        .bio-card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bio-card h2 .icon { font-size: 1.8rem; }
+        .bio-card p { color: #2c4a64; font-size: 1rem; margin-bottom: 16px; }
+        .bio-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .bio-card ul li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: #2c4a64;
+            font-size: 0.98rem;
+        }
+        .bio-card ul li::before {
+            content: "▹";
+            color: #1e6fa8;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ---------- PROJECTS TAB ---------- */
+        .projects-header { padding: 40px 0 24px; }
+        .projects-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0b2a4e;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+        .projects-header p {
+            color: #3f688b;
+            font-size: 1rem;
+            max-width: 720px;
+        }
+
+        /* ---------- SUB-TABS ---------- */
+        .sub-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+            padding: 8px;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2ecf5;
+            box-shadow: 0 4px 16px rgba(0, 20, 40, 0.04);
+        }
+        .sub-tab-btn {
+            background: transparent;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #4b6a85;
+            padding: 12px 22px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            letter-spacing: 0.2px;
+        }
+        .sub-tab-btn:hover { background: #eef4fb; color: #1e4d7a; }
+        .sub-tab-btn.active {
+            background: linear-gradient(145deg, #1e4d7a, #0d2c4a);
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(30, 77, 122, 0.3);
+        }
+
+        .sub-panel { display: none; animation: fadeUp 0.3s ease; }
+        .sub-panel.active { display: block; }
+
+        /* ---------- PROJECT DETAIL ---------- */
+        .project-detail {
+            background: #fff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 36px rgba(0, 20, 40, 0.08);
+            border: 1px solid #e2ecf5;
+            margin-bottom: 36px;
+        }
+        .project-detail-header {
+            background: linear-gradient(145deg, #0b2a4e 0%, #123b63 100%);
+            color: #fff;
+            padding: 32px 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+        .project-detail-header h2 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+        .project-detail-header .company-name {
+            font-size: 0.9rem;
+            color: #c5daf0;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .project-detail-header .role-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.3px;
+        }
+        .project-detail-body { padding: 36px 40px 40px; }
+
+        /* ---------- GALLERY ---------- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 200px 130px;
+            gap: 8px;
+            margin-bottom: 32px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .gallery-grid .g-item {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #1e3a5f;
+            transition: transform 0.35s, filter 0.35s;
+            filter: brightness(1.05) contrast(1.08) saturate(1.1);
+        }
+        .gallery-grid .g-item:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1) contrast(1.1) saturate(1.15);
+        }
+        .gallery-grid .g-hero { grid-row: span 2; grid-column: 1; }
+        .gallery-grid .g-2 { grid-column: 2; grid-row: 1; }
+        .gallery-grid .g-3 { grid-column: 3; grid-row: 1; }
+        .gallery-grid .g-4 { grid-column: 2; grid-row: 2; }
+        .gallery-grid .g-5 { grid-column: 3; grid-row: 2; }
+
+        /* ---------- TECH BRIEF ---------- */
+        .tech-brief {
+            background: #f7fafd;
+            border-radius: 20px;
+            padding: 28px 32px;
+            border-left: 5px solid #1e6fa8;
+            margin-bottom: 28px;
+        }
+        .tech-brief h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tech-brief h3 .tb-icon { font-size: 1.3rem; }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px 28px;
+        }
+        .tech-grid-item h5 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3f688b;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .tech-grid-item p {
+            font-size: 0.95rem;
+            color: #0b2a4e;
+            font-weight: 500;
+            margin: 0;
+        }
+        .project-body-text p {
+            font-size: 1rem;
+            color: #2c4a64;
+            margin-bottom: 14px;
+        }
+
+        .field-subcards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 24px 0;
+        }
+        .field-subcard {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e2ecf5;
+            padding: 22px 24px;
+            transition: transform 0.2s, box-shadow 0.3s, border-color 0.2s;
+        }
+        .field-subcard:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px -8px rgba(0, 40, 80, 0.12);
+            border-color: #1e6fa8;
+        }
+        .field-subcard .field-code {
+            display: inline-block;
+            background: #e7eef8;
+            color: #1e4a72;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            margin-bottom: 10px;
+        }
+        .field-subcard.primary .field-code {
+            background: #1e4a72;
+            color: #fff;
+        }
+        .field-subcard h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 8px;
+        }
+        .field-subcard p {
+            font-size: 0.92rem;
+            color: #2c4a64;
+            margin-bottom: 10px;
+        }
+        .field-subcard .field-role {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #1e6fa8;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .project-map {
+            margin: 24px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2ecf5;
+            box-shadow: 0 4px 14px rgba(0, 20, 40, 0.05);
+        }
+        .project-map iframe {
+            display: block;
+            width: 100%;
+            height: 280px;
+            border: 0;
+        }
+        .project-map-caption {
+            font-size: 0.82rem;
+            color: #6b8aa5;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .highlight-box {
+            background: #f2f8fd;
+            border-left: 4px solid #1e6fa8;
+            border-radius: 0 14px 14px 0;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+        .highlight-box p {
+            font-size: 0.95rem;
+            color: #1e4a72;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .project-tags span {
+            background: #e7eef8;
+            color: #1e4a72;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 50px;
+            letter-spacing: 0.2px;
+        }
+
+        .company-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 20px;
+            margin-right: 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e6fa8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .company-link:hover { color: #0b2a4e; text-decoration: underline; }
+
+        /* ---------- SKILLS TAB ---------- */
+        .tools-story {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+        .tool-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 32px 34px;
+            box-shadow: 0 10px 30px rgba(0, 20, 40, 0.06);
+            border: 1px solid #e2ecf5;
+            transition: transform 0.2s, box-shadow 0.3s;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -8px rgba(0, 40, 80, 0.12);
+        }
+        .tool-logo {
+            width: 88px;
+            height: 88px;
+            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid #e2ecf5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 20, 40, 0.05);
+        }
+        .tool-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .tool-body { flex: 1; }
+        .tool-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 8px;
+        }
+        .tool-body .context {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #1e6fa8;
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .tool-body p {
+            font-size: 0.98rem;
+            color: #2c4a64;
+            margin-bottom: 14px;
+        }
+        .tool-body p:last-child { margin-bottom: 0; }
+
+        /* ---------- M.SC PROJECT BLOCK ---------- */
+        .msc-block {
+            background: linear-gradient(145deg, #0b2a4e 0%, #123b63 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 44px 44px;
+            margin-bottom: 48px;
+            box-shadow: 0 20px 40px -12px rgba(0, 30, 60, 0.3);
+        }
+        .msc-block .msc-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #d2e5fa;
+            text-transform: uppercase;
+        }
+        .msc-block h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .msc-block .msc-subtitle {
+            font-size: 1rem;
+            color: #c5daf0;
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+
+        /* MSC info grid */
+        .msc-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px 32px;
+            margin-bottom: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .msc-info-item h5 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #8ec4f0;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .msc-info-item p {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .msc-body {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+        }
+        .msc-body h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #8ec4f0;
+            margin-bottom: 14px;
+            letter-spacing: 0.2px;
+        }
+        .msc-body p {
+            font-size: 0.98rem;
+            color: #d2e5fa;
+            margin-bottom: 14px;
+            line-height: 1.8;
+        }
+        .msc-body ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .msc-body ul li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: #d2e5fa;
+            font-size: 0.95rem;
+        }
+        .msc-body ul li::before {
+            content: "▹";
+            color: #8ec4f0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* ---------- CERTIFICATIONS (clickable cards) ---------- */
+        .cred-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+        .cred-card {
+            background: #fff;
+            border-radius: 28px;
+            padding: 36px 32px;
+            box-shadow: 0 12px 32px rgba(0, 20, 40, 0.06);
+            border: 1px solid #e2ecf5;
+        }
+        .cred-card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        .cert-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .cert-list li {
+            list-style: none;
+        }
+        .cert-list a,
+        .cert-static {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: #f7fafd;
+            border: 1px solid #e2ecf5;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.3s, border-color 0.2s, background 0.2s;
+        }
+        .cert-list a:hover,
+        .cert-static:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px -8px rgba(0, 40, 80, 0.15);
+            border-color: #1e6fa8;
+            background: #ffffff;
+        }
+        .cert-logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid #e2ecf5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            flex-shrink: 0;
+        }
+        .cert-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .cert-info {
+            flex: 1;
+        }
+        .cert-info h4 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 2px;
+            line-height: 1.35;
+        }
+        .cert-info p {
+            font-size: 0.8rem;
+            color: #6b8aa5;
+            font-weight: 500;
+            margin: 0;
+        }
+        .cert-arrow {
+            font-size: 1rem;
+            color: #1e6fa8;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .edu-item {
+            margin-bottom: 24px;
+            border-left: 4px solid #1e6fa8;
+            padding-left: 20px;
+        }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 2px;
+        }
+        .edu-item .meta { font-size: 0.9rem; color: #3f688b; font-weight: 500; }
+
+        /* ---------- CONTACT TAB ---------- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+        .contact-card {
+            background: #fff;
+            border-radius: 28px;
+            padding: 40px 36px;
+            box-shadow: 0 12px 32px rgba(0, 20, 40, 0.06);
+            border: 1px solid #e2ecf5;
+        }
+        .contact-card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b2a4e;
+            margin-bottom: 20px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .contact-detail:last-child { margin-bottom: 0; }
+        .contact-detail .icon {
+            font-size: 1.6rem;
+            background: #eef4fb;
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-detail .info h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3f688b;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .contact-detail .info a,
+        .contact-detail .info p {
+            font-size: 1.05rem;
+            color: #0b2a4e;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .contact-detail .info a:hover { color: #1e6fa8; text-decoration: underline; }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            text-align: center;
+            padding: 32px 0 48px;
+            border-top: 1px solid #d9e4ef;
+            color: #3f688b;
+            font-size: 0.88rem;
+            margin-top: 32px;
+        }
+        .footer a { color: #0b2a4e; text-decoration: none; font-weight: 500; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* ---------- IMAGE BACKGROUNDS ---------- */
+        .hna-1 { background-image: url('images/hna-1.jpg'); }
+        .hna-2 { background-image: url('images/hna-2.jpg'); }
+        .hna-3 { background-image: url('images/hna-3.jpg'); }
+        .hna-4 { background-image: url('images/hna-4.jpg'); }
+        .hna-5 { background-image: url('images/hna-5.jpg'); }
+
+        .mbccd-1 { background-image: url('images/mbccd-1.jpg'); }
+        .mbccd-2 { background-image: url('images/mbccd-2.jpg'); }
+        .mbccd-3 { background-image: url('images/mbccd-3.jpg'); }
+        .mbccd-4 { background-image: url('images/mbccd-4.jpg'); }
+        .mbccd-5 { background-image: url('images/mbccd-5.jpg'); }
+
+        .gp-1 { background-image: url('images/goldpetrol-1.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Finterraresources.com%2Fbusinesses%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .gp-2 { background-image: url('images/goldpetrol-2.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Finterraresources.com%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .gp-3 { background-image: url('images/goldpetrol-3.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Finterraresources.com%2Finvestors%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .gp-4 { background-image: url('images/goldpetrol-4.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Finterraresources.com%2Fbusinesses%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .gp-5 { background-image: url('images/goldpetrol-5.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Finterraresources.com%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+
+        .mprg-1 { background-image: url('images/mprg-1.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19yDjbjNUN%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprg-2 { background-image: url('images/mprg-2.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2F20.245961%2C96.529180&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprg-3 { background-image: url('images/mprg-3.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19yDjbjNUN%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprg-4 { background-image: url('images/mprg-4.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19yDjbjNUN%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprg-5 { background-image: url('images/mprg-5.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2F20.245961%2C96.529180&screenshot=true&meta=false&embed=screenshot.url'); }
+
+        .mapg-1 { background-image: url('images/mapg-1.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Jg1Haxuo9%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mapg-2 { background-image: url('images/mapg-2.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Jg1Haxuo9%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mapg-3 { background-image: url('images/mapg-3.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Jg1Haxuo9%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mapg-4 { background-image: url('images/mapg-4.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Jg1Haxuo9%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mapg-5 { background-image: url('images/mapg-5.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Jg1Haxuo9%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+
+        .mprl-1 { background-image: url('images/mprl-1.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fmprlexp.com&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprl-2 { background-image: url('images/mprl-2.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fmprlexp.com%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprl-3 { background-image: url('images/mprl-3.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fmprlexp.com%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprl-4 { background-image: url('images/mprl-4.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fmprlexp.com%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .mprl-5 { background-image: url('images/mprl-5.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fmprlexp.com%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+
+        .ber-1 { background-image: url('images/berlanga-1.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.upstreamonline.com%2Fexploration%2Fberlanga-set-to-drill-gas-well-off-myanmar%2F2-1-752953&screenshot=true&meta=false&embed=screenshot.url'); }
+        .ber-2 { background-image: url('images/berlanga-2.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19yDjbjNUN%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .ber-3 { background-image: url('images/berlanga-3.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.upstreamonline.com%2Fexploration%2Fberlanga-set-to-drill-gas-well-off-myanmar%2F2-1-752953&screenshot=true&meta=false&embed=screenshot.url'); }
+        .ber-4 { background-image: url('images/berlanga-4.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19yDjbjNUN%2F&screenshot=true&meta=false&embed=screenshot.url'); }
+        .ber-5 { background-image: url('images/berlanga-5.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.upstreamonline.com%2Fexploration%2Fberlanga-set-to-drill-gas-well-off-myanmar%2F2-1-752953&screenshot=true&meta=false&embed=screenshot.url'); }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 900px) {
+            .bio-grid, .cred-grid, .contact-wrapper { grid-template-columns: 1fr; }
+            .hero-home h1 { font-size: 2.6rem; }
+            .tool-card { flex-direction: column; }
+            .tab-nav .container { flex-direction: column; align-items: stretch; }
+            .logo { text-align: center; }
+            .tab-links { justify-content: center; }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 200px 130px 130px;
+            }
+            .gallery-grid .g-hero { grid-column: span 2; grid-row: 1; }
+            .gallery-grid .g-2 { grid-column: 1; grid-row: 2; }
+            .gallery-grid .g-3 { grid-column: 2; grid-row: 2; }
+            .gallery-grid .g-4 { grid-column: 1; grid-row: 3; }
+            .gallery-grid .g-5 { grid-column: 2; grid-row: 3; }
+            .project-detail-header { padding: 24px 26px; }
+            .project-detail-body { padding: 26px 26px 30px; }
+            .msc-block { padding: 32px 26px; }
+            .msc-body { grid-template-columns: 1fr; gap: 24px; }
+            .msc-block h2 { font-size: 1.55rem; }
+        }
+        @media (max-width: 600px) {
+            .hero-home { padding: 32px 0 40px; border-radius: 0 0 32px 32px; }
+            .hero-home .container { flex-direction: column-reverse; text-align: center; gap: 28px; }
+            .hero-home .contact-row { justify-content: center; }
+            .hero-photo .photo-frame { width: 160px; height: 160px; }
+            .hero-home h1 { font-size: 2.2rem; }
+            .tab-btn { padding: 8px 16px; font-size: 0.85rem; }
+            .sub-tab-btn { padding: 10px 16px; font-size: 0.82rem; }
+            .bio-card, .cred-card, .contact-card { padding: 28px 22px; }
+            .tool-card { padding: 24px 22px; }
+            .project-detail-header h2 { font-size: 1.35rem; }
+            .projects-header h1 { font-size: 1.7rem; }
+            .msc-block { padding: 26px 20px; }
+            .msc-block h2 { font-size: 1.35rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ TAB NAVIGATION ============ -->
+    <nav class="tab-nav">
+        <div class="container">
+            <div class="logo">AUNG MYAT <span>THEIN</span></div>
+            <div class="tab-links">
+                <button class="tab-btn active" data-tab="home">Home</button>
+                <button class="tab-btn" data-tab="projects">Projects</button>
+                <button class="tab-btn" data-tab="skills">Skills & Education</button>
+                <button class="tab-btn" data-tab="contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ TAB: HOME ============ -->
+    <div id="home" class="tab-panel active">
+        <div class="hero-home">
+            <div class="container">
+                <div class="text">
+                    <div class="badge">Geologist · Petroleum & Geotechnical</div>
+                    <h1>Aung Myat <span>Thein</span></h1>
+                    <div class="subhead">
+                        Delivering subsurface insight and operational excellence across oil & gas, 
+                        mining, and ground improvement projects.
+                    </div>
+                    <div class="contact-row">
+                        <span>📍 Yangon, Myanmar</span>
+                        <a href="mailto:aungmyatthein.geology@gmail.com">📧 aungmyatthein.geology@gmail.com</a>
+                        <a href="tel:+959759714138">📞 +95 9 759 714 138</a>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <div class="photo-frame">
+                        <img src="images/profile.jpg"
+                             alt="Aung Myat Thein"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%231e3a5f%22/%3E%3Ccircle cx=%2250%22 cy=%2238%22 r=%2218%22 fill=%22%23b0c8e0%22/%3E%3Cpath d=%22M50 62c-18 0-30 12-30 26h60c0-14-12-26-30-26z%22 fill=%22%23b0c8e0%22/%3E%3C/svg%3E';">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="bio-grid">
+                <div class="bio-card">
+                    <h2><span class="icon">👤</span> Biography</h2>
+                    <p>
+                        I am a geologist with a strong foundation in petroleum geology and geotechnical engineering. 
+                        My experience spans well operations, gold exploration, ground improvement, and geological mapping. 
+                        I thrive in collaborative environments and am passionate about applying subsurface data to solve 
+                        real-world challenges in energy and infrastructure.
+                    </p>
+                    <p>
+                        I hold an M.Sc. in Geology (Petroleum) from the University of Yangon and a B.Sc. (Hons) from 
+                        Mawlamyine University. My professional journey has involved working with MOGE, international 
+                        investors, and multidisciplinary teams.
+                    </p>
+                </div>
+
+                <div class="bio-card">
+                    <h2><span class="icon">🎯</span> Objective</h2>
+                    <p>
+                        To contribute my geological and geotechnical expertise to impactful projects in the energy, 
+                        mining, and infrastructure sectors. I aim to:
+                    </p>
+                    <ul>
+                        <li>Deliver high-quality subsurface interpretations that reduce risk and optimize operations.</li>
+                        <li>Support well workover, drilling, and ground improvement projects with data-driven insights.</li>
+                        <li>Grow as a well-rounded geoscientist while contributing to sustainable resource development.</li>
+                        <li>Collaborate with diverse teams to achieve operational excellence and safety.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ TAB: PROJECTS ============ -->
+    <div id="projects" class="tab-panel">
+        <div class="container">
+            <div class="projects-header">
+                <h1>Projects & Field Contributions</h1>
+                <p>
+                    A closer look at each project I have contributed to — the fields, the technical 
+                    challenges, and the work I delivered. Use the tabs below to explore each company 
+                    in detail.
+                </p>
+            </div>
+
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active" data-sub="hna">HNA Myanmar Oil &amp; Gas</button>
+                <button class="sub-tab-btn" data-sub="mbccd">MBCCD · Amarapura</button>
+                <button class="sub-tab-btn" data-sub="goldpetrol">GoldPetrol · Interra</button>
+                <button class="sub-tab-btn" data-sub="mprg">Myanma Precious Resources</button>
+                <button class="sub-tab-btn" data-sub="mapg">MAPG</button>
+                <button class="sub-tab-btn" data-sub="mprl">MPRL E&amp;P</button>
+                <button class="sub-tab-btn" data-sub="berlanga">Berlanga · Block M-8</button>
+            </div>
+
+            <!-- ============ HNA ============ -->
+            <div id="hna" class="sub-panel active">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <div>
+                            <h2>Keeping Mature Fields Alive</h2>
+                            <div class="company-name">HNA Myanmar Oil &amp; Gas Ltd.</div>
+                        </div>
+                        <div class="role-badge">Geologist · Subsurface &amp; Operations</div>
+                    </div>
+                    <div class="project-detail-body">
+
+                        <div class="gallery-grid">
+                            <div class="g-item g-hero hna-1"></div>
+                            <div class="g-item g-2 hna-2"></div>
+                            <div class="g-item g-3 hna-3"></div>
+                            <div class="g-item g-4 hna-4"></div>
+                            <div class="g-item g-5 hna-5"></div>
+                        </div>
+
+                        <div class="tech-brief">
+                            <h3><span class="tb-icon">📋</span> Technical Brief</h3>
+                            <div class="tech-grid">
+                                <div class="tech-grid-item">
+                                    <h5>Primary Field</h5>
+                                    <p>Shwe Pyi Tha Oil &amp; Gas Field (IOR-7)</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Operator</h5>
+                                    <p>Future Engineering Group</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Secondary Fields</h5>
+                                    <p>Myangaung (IOR-6), Pyay (IOR-4)</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Regulatory Partner</h5>
+                                    <p>Myanma Oil and Gas Enterprise (MOGE)</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Field Type</h5>
+                                    <p>Mature onshore oil &amp; gas</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Focus</h5>
+                                    <p>Improved Oil Recovery (IOR), workover &amp; drilling</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body-text">
+                            <p>
+                                HNA Myanmar Oil &amp; Gas is an independent, Myanmar-based exploration and production 
+                                company focused on operating mature fields and building a portfolio of energy assets. 
+                                My main contribution is on the <strong>Shwe Pyi Tha Oil &amp; Gas Field (IOR-7)</strong>, 
+                                operated by the <strong>Future Engineering Group</strong>. I also assist on our other 
+                                operated fields — <strong>Myangaung (IOR-6)</strong> and <strong>Pyay (IOR-4)</strong>.
+                            </p>
+                            <p>
+                                My day-to-day work puts me directly in touch with Myanma Oil and Gas Enterprise 
+                                (MOGE) field personnel. Together, we keep operations running — I evaluate and select 
+                                candidate wells for workover, propose new well locations, and provide technical 
+                                support for both workover jobs and the drilling of new wells. I also coordinate with 
+                                investors and company representatives to make sure the technical story and the 
+                                business story stay aligned.
+                            </p>
+                        </div>
+
+                        <h3 style="font-size:1.15rem; color:#0b2a4e; font-weight:700; margin-top:24px; margin-bottom:6px;">Fields I Contribute To</h3>
+                        <div class="field-subcards">
+
+                            <div class="field-subcard primary">
+                                <span class="field-code">IOR-7 · Primary</span>
+                                <h4>Shwe Pyi Tha Oil &amp; Gas Field</h4>
+                                <p>
+                                    Operated by Future Engineering Group. My main focus area — I support well 
+                                    workover selection, new well location proposals, and drilling technical support.
+                                </p>
+                                <div class="field-role">Main contribution</div>
+                            </div>
+
+                            <div class="field-subcard">
+                                <span class="field-code">IOR-6</span>
+                                <h4>Myangaung Oil &amp; Gas Field</h4>
+                                <p>
+                                    One of our own operated fields. I assist with subsurface evaluation and 
+                                    operational support alongside the primary field work.
+                                </p>
+                                <div class="field-role">Assistance</div>
+                            </div>
+
+                            <div class="field-subcard">
+                                <span class="field-code">IOR-4</span>
+                                <h4>Pyay Oil &amp; Gas Field</h4>
+                                <p>
+                                    Our own operated field. I provide geological and operational support 
+                                    as part of the broader field portfolio.
+                                </p>
+                                <div class="field-role">Assistance</div>
+                            </div>
+
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>💡 The value: turning raw well data and field observations into clear recommendations that keep production flowing and reduce drilling risk across a portfolio of mature IOR fields.</p>
+                        </div>
+
+                        <div class="project-tags">
+                            <span>Shwe Pyi Tha (IOR-7)</span>
+                            <span>Myangaung (IOR-6)</span>
+                            <span>Pyay (IOR-4)</span>
+                            <span>Future Engineering Group</span>
+                            <span>MOGE liaison</span>
+                            <span>Well workover</span>
+                            <span>Drilling support</span>
+                        </div>
+                        <a href="https://hnaoilandgas.com" target="_blank" class="company-link">↗ HNA Myanmar Oil &amp; Gas</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ MBCCD ============ -->
+            <div id="mbccd" class="sub-panel">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <div>
+                            <h2>Building on Solid Ground — Amarapura River City</h2>
+                            <div class="company-name">MBCCD · Mandalay Business Capital City Development</div>
+                        </div>
+                        <div class="role-badge">Geotechnical Engineer</div>
+                    </div>
+                    <div class="project-detail-body">
+
+                        <div class="gallery-grid">
+                            <div class="g-item g-hero mbccd-1"></div>
+                            <div class="g-item g-2 mbccd-2"></div>
+                            <div class="g-item g-3 mbccd-3"></div>
+                            <div class="g-item g-4 mbccd-4"></div>
+                            <div class="g-item g-5 mbccd-5"></div>
+                        </div>
+
+                        <div class="tech-brief">
+                            <h3><span class="tb-icon">📋</span> Technical Brief</h3>
+                            <div class="tech-grid">
+                                <div class="tech-grid-item">
+                                    <h5>Project</h5>
+                                    <p>Amarapura River City</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Region</h5>
+                                    <p>Mandalay Region, Myanmar</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Developer</h5>
+                                    <p>MBCCD</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Scope</h5>
+                                    <p>Ground improvement &amp; geotechnical investigation</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Methods</h5>
+                                    <p>CPT, Vibro-compaction, SPT</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Software</h5>
+                                    <p>CLiq, CPeT-IT</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body-text">
+                            <p>
+                                MBCCD (Mandalay Business Capital City Development) was established to develop the 
+                                Amarapura River City and other real estate projects in Mandalay Region. Before you can 
+                                build on a site like that, you have to understand what is underneath it.
+                            </p>
+                            <p>
+                                That was my job. I performed CPT (cone penetration testing) and vibro-compaction for 
+                                ground improvement work, then analysed the CPT data and produced reports using CLiq and 
+                                CPeT-IT software. I supervised SPT soil investigation, monitored progress, and reported 
+                                directly to the department head. I also assisted with the wider geotechnical investigation 
+                                programme for the development.
+                            </p>
+                        </div>
+
+                        <div class="project-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=21.904814,96.047858&z=12&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Amarapura River City project location, Mandalay Region">
+                            </iframe>
+                        </div>
+                        <div class="project-map-caption">
+                            📍 Amarapura River City — Mandalay Region, Myanmar
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>💡 The value: ground improvement only works if it is designed from real data — my CPT analysis and SPT supervision gave the project team the confidence to build.</p>
+                        </div>
+
+                        <div class="project-tags">
+                            <span>CPT</span>
+                            <span>Vibro-compaction</span>
+                            <span>CLiq / CPeT-IT</span>
+                            <span>SPT</span>
+                            <span>Ground improvement</span>
+                        </div>
+                        <a href="https://mbccd.com" target="_blank" class="company-link">↗ MBCCD (Amarapura River City)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ GOLDPETROL ============ -->
+            <div id="goldpetrol" class="sub-panel">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <div>
+                            <h2>Yenangyaung &amp; Chauk Fields — Watching Every Well</h2>
+                            <div class="company-name">GoldPetrol JOC · Interra Resources</div>
+                        </div>
+                        <div class="role-badge">Jr. Geologist · Production &amp; Drilling Support</div>
+                    </div>
+                    <div class="project-detail-body">
+
+                        <div class="gallery-grid">
+                            <div class="g-item g-hero gp-1"></div>
+                            <div class="g-item g-2 gp-2"></div>
+                            <div class="g-item g-3 gp-3"></div>
+                            <div class="g-item g-4 gp-4"></div>
+                            <div class="g-item g-5 gp-5"></div>
+                        </div>
+
+                        <div class="tech-brief">
+                            <h3><span class="tb-icon">📋</span> Technical Brief</h3>
+                            <div class="tech-grid">
+                                <div class="tech-grid-item">
+                                    <h5>Primary Fields</h5>
+                                    <p>Yenangyaung &amp; Chauk</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Parent Company</h5>
+                                    <p>Interra Resources</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Region</h5>
+                                    <p>Magway Region, Myanmar</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Field Type</h5>
+                                    <p>Mature onshore oil fields</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Well Types</h5>
+                                    <p>New, reactivation, side-track, deepening, ADP</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Focus</h5>
+                                    <p>Production monitoring, mud logging, well records</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body-text">
+                            <p>
+                                GoldPetrol Joint Operating Company, part of Interra Resources, operates mature oil 
+                                fields in Myanmar — including the historic <strong>Yenangyaung</strong> and 
+                                <strong>Chauk</strong> fields. These are old fields with long production histories, 
+                                and keeping accurate records of every well is essential.
+                            </p>
+                            <p>
+                                My role was to monitor and update injection and production groups so that information 
+                                stayed accurate and timely. I maintained well mechanical and diagram records for all 
+                                operation wells — including new wells, reactivation wells, and ADP wells — so the team 
+                                always had a reliable picture of each well's status.
+                            </p>
+                            <p>
+                                When drilling was underway, I generated mud logs for new wells, side-track wells, and 
+                                deepening wells, giving the drilling team crucial information about the formations they 
+                                were passing through. I also assisted the Senior Geologist with geological research and 
+                                studies, and prepared and presented the summarized weekly operation reports.
+                            </p>
+                        </div>
+
+                        <div class="project-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=20.458694,94.876389&z=11&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Yenangyaung and Chauk oil fields, Magway Region">
+                            </iframe>
+                        </div>
+                        <div class="project-map-caption">
+                            📍 Yenangyaung &amp; Chauk fields — Magway Region, Myanmar
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>💡 The value: in mature fields, good record-keeping and timely mud logging are what prevent surprises — my weekly reports kept the whole operation informed.</p>
+                        </div>
+
+                        <div class="project-tags">
+                            <span>Yenangyaung Field</span>
+                            <span>Chauk Field</span>
+                            <span>Mud logging</span>
+                            <span>Well diagrams</span>
+                            <span>ADP wells</span>
+                            <span>Weekly reports</span>
+                        </div>
+                        <a href="https://interraresources.com/businesses/#petroleum" target="_blank" class="company-link">↗ Interra Resources (GoldPetrol JOC)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ MPRG ============ -->
+            <div id="mprg" class="sub-panel">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <div>
+                            <h2>Chasing Gold at Modi-Momi — Slate Belt Exploration</h2>
+                            <div class="company-name">Myanma Precious Resources Group</div>
+                        </div>
+                        <div class="role-badge">Jr. Geologist · Gold Exploration</div>
+                    </div>
+                    <div class="project-detail-body">
+
+                        <div class="gallery-grid">
+                            <div class="g-item g-hero mprg-1"></div>
+                            <div class="g-item g-2 mprg-2"></div>
+                            <div class="g-item g-3 mprg-3"></div>
+                            <div class="g-item g-4 mprg-4"></div>
+                            <div class="g-item g-5 mprg-5"></div>
+                        </div>
+
+                        <div class="tech-brief">
+                            <h3><span class="tb-icon">📋</span> Technical Brief</h3>
+                            <div class="tech-grid">
+                                <div class="tech-grid-item">
+                                    <h5>Project Area</h5>
+                                    <p>Modi-Momi, central Myanmar</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Coordinates</h5>
+                                    <p>20.245961, 96.529180</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Deposit Type</h5>
+                                    <p>Orogenic gold — slate-hosted mesothermal quartz veins</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Host Rocks</h5>
+                                    <p>Mergui Group metasediments</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Scope</h5>
+                                    <p>Geological mapping, core logging, drilling programs</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Focus</h5>
+                                    <p>Structural features &amp; gold mineralization</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body-text">
+                            <p>
+                                Myanma Precious Resources Group is involved in gold exploration in Myanmar, where the 
+                                geology is dominated by slate-hosted, mesothermal quartz-gold vein systems — orogenic 
+                                gold deposits of the type found in the Modi-Momi area of central Myanmar.
+                            </p>
+                            <p>
+                                My work followed that exploration logic. I conducted geological surveys and mapping 
+                                focused specifically on gold, then planned and executed drilling programs to test for 
+                                potential gold deposits. I performed geotechnical and geological core logging, analysing 
+                                rock and soil samples for gold mineralization.
+                            </p>
+                            <p>
+                                A key part of the job was collecting and interpreting geological data — structural 
+                                features and mineral assemblages associated with gold deposits — and preparing 
+                                comprehensive reports. Understanding the vein systems, shear zones, and sulphide 
+                                generations is what separates a good target from a blind hole.
+                            </p>
+                        </div>
+
+                        <div class="project-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=20.245961,96.529180&z=11&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Modi-Momi gold project area, central Myanmar">
+                            </iframe>
+                        </div>
+                        <div class="project-map-caption">
+                            📍 Project area — Modi-Momi, central Myanmar (20.245961, 96.529180)
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>💡 The value: combining field mapping, core logging, and structural interpretation to help define where gold mineralization is most likely to occur.</p>
+                        </div>
+
+                        <div class="project-tags">
+                            <span>Gold exploration</span>
+                            <span>Core logging</span>
+                            <span>Drilling programs</span>
+                            <span>Structural geology</span>
+                            <span>Modi-Momi</span>
+                        </div>
+                        <a href="https://www.facebook.com/share/19yDjbjNUN/" target="_blank" class="company-link">↗ Myanma Precious Resources Group (Facebook)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ MAPG ============ -->
+            <div id="mapg" class="sub-panel">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <div>
+                            <h2>Bringing Geoscientists Together</h2>
+                            <div class="company-name">Myanmar Association of Petroleum Geologists</div>
+                        </div>
+                        <div class="role-badge">Office Assistant · Geology Support</div>
+                    </div>
+                    <div class="project-detail-body">
+
+                        <div class="gallery-grid">
+                            <div class="g-item g-hero mapg-1"></div>
+                            <div class="g-item g-2 mapg-2"></div>
+                            <div class="g-item g-3 mapg-3"></div>
+                            <div class="g-item g-4 mapg-4"></div>
+                            <div class="g-item g-5 mapg-5"></div>
+                        </div>
+
+                        <div class="tech-brief">
+                            <h3><span class="tb-icon">📋</span> Technical Brief</h3>
+                            <div class="tech-grid">
+                                <div class="tech-grid-item">
+                                    <h5>Organization</h5>
+                                    <p>Myanmar Association of Petroleum Geologists</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Location</h5>
+                                    <p>Yangon, Myanmar</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Role</h5>
+                                    <p>Geology support &amp; event coordination</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Scope</h5>
+                                    <p>Geological mapping, conferences, field trips</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body-text">
+                            <p>
+                                The Myanmar Association of Petroleum Geologists (MAPG) is where geology meets community 
+                                in Myanmar's petroleum sector. I joined to support the association's activities and 
+                                quickly found myself involved in both the science and the logistics.
+                            </p>
+                            <p>
+                                I assisted in geological mapping activities — data collection, analysis, and report 
+                                preparation — and I also organized and facilitated conferences and field trips, helping 
+                                bring geoscientists and industry professionals together to share knowledge and 
+                                experience.
+                            </p>
+                        </div>
+
+                        <div class="project-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=16.8409,96.1735&z=12&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Myanmar Association of Petroleum Geologists, Yangon">
+                            </iframe>
+                        </div>
+                        <div class="project-map-caption">
+                            📍 MAPG activities — Yangon, Myanmar
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>💡 The value: supporting the geoscience community and helping create spaces where technical knowledge is exchanged.</p>
+                        </div>
+
+                        <div class="project-tags">
+                            <span>Geological mapping</span>
+                            <span>Data analysis</span>
+                            <span>Event organization</span>
+                            <span>Field trips</span>
+                        </div>
+                        <a href="https://www.facebook.com/share/1Jg1Haxuo9/" target="_blank" class="company-link">↗ MAPG (Facebook)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ MPRL ============ -->
+            <div id="mprl" class="sub-panel">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <div>
+                            <h2>Trainee Geologist at MPRL E&amp;P — Learning Offshore Operations</h2>
+                            <div class="company-name">MPRL E&amp;P Pte Ltd</div>
+                        </div>
+                        <div class="role-badge">Trainee Geologist</div>
+                    </div>
+                    <div class="project-detail-body">
+
+                        <div class="gallery-grid">
+                            <div class="g-item g-hero mprl-1"></div>
+                            <div class="g-item g-2 mprl-2"></div>
+                            <div class="g-item g-3 mprl-3"></div>
+                            <div class="g-item g-4 mprl-4"></div>
+                            <div class="g-item g-5 mprl-5"></div>
+                        </div>
+
+                        <div class="tech-brief">
+                            <h3><span class="tb-icon">📋</span> Technical Brief</h3>
+                            <div class="tech-grid">
+                                <div class="tech-grid-item">
+                                    <h5>Company</h5>
+                                    <p>MPRL E&amp;P Pte Ltd</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Region</h5>
+                                    <p>Myanmar (onshore &amp; offshore)</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Scope</h5>
+                                    <p>Wellsite operations, subsurface evaluation</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Focus</h5>
+                                    <p>Petroleum geology &amp; data interpretation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body-text">
+                            <p>
+                                MPRL E&amp;P is an upstream oil and gas company operating in Myanmar, with a strong focus 
+                                on minimising environmental impact and protecting surrounding communities and biodiversity 
+                                while developing energy resources.
+                            </p>
+                            <p>
+                                As a Trainee Geologist, I was exposed to petroleum geology, wellsite operations, and 
+                                integrated subsurface evaluation. I supported senior geologists in data interpretation 
+                                and operational workflows, gaining a practical understanding of how exploration and 
+                                production decisions are made in a real operating company.
+                            </p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>💡 The value: a foundational training ground that connected classroom geology to real wellsite and subsurface work.</p>
+                        </div>
+
+                        <div class="project-tags">
+                            <span>Petroleum geology</span>
+                            <span>Wellsite operations</span>
+                            <span>Subsurface evaluation</span>
+                        </div>
+                        <a href="https://mprlexp.com/" target="_blank" class="company-link">↗ MPRL E&amp;P</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ BERLANGA ============ -->
+            <div id="berlanga" class="sub-panel">
+                <div class="project-detail">
+                    <div class="project-detail-header">
+                        <div>
+                            <h2>Berlanga's Block M-8 Gas Campaign — Front-Row Seat to a Wildcat</h2>
+                            <div class="company-name">Berlanga Myanmar Pte Ltd</div>
+                        </div>
+                        <div class="role-badge">Trainee Geologist · Wellsite &amp; Subsurface Support</div>
+                    </div>
+                    <div class="project-detail-body">
+
+                        <div class="gallery-grid">
+                            <div class="g-item g-hero ber-1"></div>
+                            <div class="g-item g-2 ber-2"></div>
+                            <div class="g-item g-3 ber-3"></div>
+                            <div class="g-item g-4 ber-4"></div>
+                            <div class="g-item g-5 ber-5"></div>
+                        </div>
+
+                        <div class="tech-brief">
+                            <h3><span class="tb-icon">📋</span> Technical Brief</h3>
+                            <div class="tech-grid">
+                                <div class="tech-grid-item">
+                                    <h5>Block</h5>
+                                    <p>Block M-8, offshore Myanmar</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Prospect Size</h5>
+                                    <p>~2.5 Tcf gas</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Rig</h5>
+                                    <p>Semisubmersible <em>Noble Clyde Boudreaux</em></p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Well Type</h5>
+                                    <p>Maiden wildcat exploration well</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Operator</h5>
+                                    <p>Berlanga International (Singapore)</p>
+                                </div>
+                                <div class="tech-grid-item">
+                                    <h5>Scope</h5>
+                                    <p>Wellsite geology &amp; subsurface support</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body-text">
+                            <p>
+                                Berlanga International, a Singapore-based operator, was preparing to spud its maiden 
+                                wildcat on <strong>Block M-8 off Myanmar</strong> — a major gas prospect holding almost 
+                                <strong>2.5 trillion cubic feet of gas</strong>. The plan was to use the semisubmersible 
+                                <em>Noble Clyde Boudreaux</em> to drill the well.
+                            </p>
+                            <p>
+                                Being involved with Berlanga Myanmar during this period gave me hands-on exposure to 
+                                offshore exploration at a critical stage. I supported senior geologists in data 
+                                interpretation and operational workflows, learning how a prospect moves from geological 
+                                idea to drilling location, and how subsurface data is used to guide decisions on a 
+                                high-stakes wildcat.
+                            </p>
+                        </div>
+
+                        <div class="project-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=15.5000,94.5000&z=8&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Berlanga Block M-8 offshore Myanmar">
+                            </iframe>
+                        </div>
+                        <div class="project-map-caption">
+                            📍 Block M-8 — offshore Myanmar (approximate block area)
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>💡 The value: exposure to a major offshore gas exploration campaign, and to the integration of geological data with drilling operations.</p>
+                        </div>
+
+                        <div class="project-tags">
+                            <span>Block M-8</span>
+                            <span>Offshore gas</span>
+                            <span>Wildcat well</span>
+                            <span>Wellsite geology</span>
+                        </div>
+                        <a href="https://www.upstreamonline.com/exploration/berlanga-set-to-drill-gas-well-off-myanmar/2-1-752953" target="_blank" class="company-link">↗ Berlanga Block M-8 News</a>
+                        <a href="https://www.facebook.com/share/19yDjbjNUN/" target="_blank" class="company-link">↗ Berlanga Myanmar (Facebook)</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============ TAB: SKILLS & EDUCATION ============ -->
+    <div id="skills" class="tab-panel">
+        <div class="container" style="padding-top: 40px;">
+
+            <h2 style="font-size: 1.7rem; font-weight: 700; color: #0b2a4e; margin-bottom: 8px; letter-spacing: -0.5px;">
+                How I Use My Tools
+            </h2>
+            <p style="color: #3f688b; margin-bottom: 32px; max-width: 760px;">
+                Every piece of software I use has earned its place through real project work. 
+                Here is the story behind each one — where I learned it, and how it helped deliver results.
+            </p>
+
+            <div class="tools-story">
+
+                <div class="tool-card">
+    <div class="tool-logo">
+        <img src="images/petrel.png"
+             alt="Petrel — Schlumberger"
+             onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#0033a0;font-size:1.1rem;letter-spacing:-0.5px;&quot;>Petrel</span>'">
+    </div>
+                    <div class="tool-body">
+                        <h3>Petrel — Subsurface Modelling &amp; Well Planning</h3>
+                        <div class="context">Used at HNA Myanmar Oil &amp; Gas · MPRL E&amp;P training</div>
+                        <p>
+                            Petrel is where the subsurface picture comes together. During my time with MPRL E&amp;P 
+                            and later at HNA, I used Petrel to build and review geological models, visualise 
+                            structure and reservoir geometry, and support well location proposals.
+                        </p>
+                        <p>
+                            When we needed to evaluate candidate wells for workover or propose new drilling 
+                            locations, Petrel gave me the integrated view — combining well data, structure maps, 
+                            and stratigraphy — that turned raw numbers into a defensible recommendation for 
+                            management and investors.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+    <img src="images/smt-kingdom.jpg"
+         alt="SMT The KINGDOM Suite"
+         onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#cc0000;font-size:1.1rem;&quot;>SMT</span>'">
+</div>
+                    <div class="tool-body">
+                        <h3>SMT Kingdom — Seismic &amp; Well Log Interpretation</h3>
+                        <div class="context">Used at GoldPetrol JOC / Interra Resources &amp; MPRL E&amp;P</div>
+                        <p>
+                            Kingdom (now an IHS Markit product) was my daily workspace for interpreting well logs 
+                            and tying them to seismic data. At GoldPetrol JOC, I used it to review well data across 
+                            the Yenangyaung and Chauk fields — mature, heavily-drilled areas where understanding 
+                            each well's history is essential.
+                        </p>
+                        <p>
+                            The software helped me correlate formations, identify zones of interest, and support 
+                            the weekly operation reports I prepared for the team. It is also where I learned to 
+                            integrate mud log data with log curves — a skill I carried into every later role.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <img src="https://geologismiki.gr/wp-content/uploads/2018/10/GeoLogismiki_Logo_web.png"
+                             alt="GeoLogismiki logo"
+                             onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#1e4d7a;font-size:0.95rem;&quot;>CLiq</span>'">
+                    </div>
+                    <div class="tool-body">
+                        <h3>CLiq — CPT Interpretation &amp; Liquefaction Assessment</h3>
+                        <div class="context">Used at MBCCD · Amarapura River City</div>
+                        <p>
+                            At MBCCD, CPT was the foundation of our ground investigation work for the Amarapura 
+                            River City development. CLiq (from GeoLogismiki) is the industry-standard tool for 
+                            interpreting cone penetration test data, and I used it to process CPT profiles, 
+                            evaluate soil behaviour type, and assess liquefaction potential.
+                        </p>
+                        <p>
+                            The results fed directly into ground improvement design — vibro-compaction decisions 
+                            depended on the soil layers and risk zones CLiq helped me identify. Producing clear 
+                            CPT reports with CLiq meant the engineering team could act on the data with confidence.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <img src="https://geologismiki.gr/wp-content/uploads/2018/10/GeoLogismiki_Logo_web.png"
+                             alt="GeoLogismiki logo"
+                             onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#1e4d7a;font-size:0.9rem;&quot;>CPeT-IT</span>'">
+                    </div>
+                    <div class="tool-body">
+                        <h3>CPeT-IT — Advanced CPT Data Processing</h3>
+                        <div class="context">Used at MBCCD · Geotechnical Investigation</div>
+                        <p>
+                            CPeT-IT was my companion tool to CLiq. While CLiq focused on liquefaction, CPeT-IT 
+                            gave me deeper geotechnical parameters — soil unit weight, friction angle, undrained 
+                            shear strength — derived from CPT data.
+                        </p>
+                        <p>
+                            Together with CLiq, it let me build a complete picture of the site: what the soil was, 
+                            how it would behave, and what ground improvement was needed. This dual-tool workflow 
+                            became my standard approach for every CPT investigation at MBCCD.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <img src="https://damassets.autodesk.net/content/dam/autodesk/www/Company/logo/autodesk-logo-black.png"
+                             alt="Autodesk logo"
+                             onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#0b2a4e;font-size:0.95rem;&quot;>AutoCAD</span>'">
+                    </div>
+                    <div class="tool-body">
+                        <h3>AutoCAD — Geological Maps, Well Diagrams &amp; Site Plans</h3>
+                        <div class="context">Used at GoldPetrol JOC, Myanma Precious Resources &amp; MBCCD</div>
+                        <p>
+                            AutoCAD is the drafting backbone of geological and engineering work. I completed an 
+                            intermediate AutoCAD course and have used it across multiple roles — drawing well 
+                            mechanical diagrams at GoldPetrol JOC, preparing geological maps and cross-sections 
+                            during gold exploration, and supporting geotechnical site plans at MBCCD.
+                        </p>
+                        <p>
+                            Well diagrams, in particular, are only useful if they are accurate and clearly 
+                            presented. AutoCAD let me maintain those records precisely, so the operations team 
+                            always had reliable drawings for every well.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <img src="https://qgis.org/styleguide/qgis-logo.png"
+                             alt="QGIS logo"
+                             onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#589632;font-size:0.95rem;&quot;>QGIS</span>'">
+                    </div>
+                    <div class="tool-body">
+                        <h3>QGIS — Spatial Mapping for Exploration &amp; Fieldwork</h3>
+                        <div class="context">Used at Myanma Precious Resources (Modi-Momi) &amp; MAPG</div>
+                        <p>
+                            QGIS was central to my exploration work. During gold exploration at Modi-Momi, I used 
+                            it to overlay geological data, structural trends, and sampling locations — building 
+                            spatial layers that helped define where to focus drilling.
+                        </p>
+                        <p>
+                            At MAPG, QGIS supported geological mapping activities, letting the team visualise field 
+                            data and produce maps for reports and presentations. It is the tool that turns scattered 
+                            field observations into a coherent exploration story.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/320px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png"
+                             alt="Microsoft Excel logo"
+                             onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#217346;font-size:1.4rem;&quot;>XLS</span>'">
+                    </div>
+                    <div class="tool-body">
+                        <h3>Excel &amp; Microsoft Office — Data Analysis &amp; Reporting</h3>
+                        <div class="context">Used across all roles</div>
+                        <p>
+                            Excel is where most of the raw data lived. At GoldPetrol JOC, I used it to monitor 
+                            injection and production groups, track well status, and compile the weekly operation 
+                            reports. At MBCCD, it supported CPT and SPT data tracking.
+                        </p>
+                        <p>
+                            Word and PowerPoint were equally important — preparing technical reports, summaries, 
+                            and presentations for senior geologists, department heads, and investors. Clear 
+                            communication of technical data is a skill I have deliberately built alongside the 
+                            analysis itself.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= M.SC THESIS PROJECT ================= -->
+            <div class="msc-block">
+                <div class="msc-badge">🎓 M.Sc. Thesis Research · University of Yangon</div>
+                <h2>Facies Analysis &amp; Reservoir Characterisation of the Miocene Rock Units</h2>
+                <div class="msc-subtitle">Sinlangyi Area, Minbu District, Magway Region, Myanmar</div>
+
+                <div class="msc-info-grid">
+                    <div class="msc-info-item">
+                        <h5>Study Area</h5>
+                        <p>Sinlangyi, Minbu District</p>
+                    </div>
+                    <div class="msc-info-item">
+                        <h5>Basin</h5>
+                        <p>Salin Basin (fore-arc sub-basin)</p>
+                    </div>
+                    <div class="msc-info-item">
+                        <h5>Target Units</h5>
+                        <p>Pyawbwe &amp; Kyaukkok Formations</p>
+                    </div>
+                    <div class="msc-info-item">
+                        <h5>Structural Setting</h5>
+                        <p>Htaukshabin Anticline (First Line of Structure)</p>
+                    </div>
+                    <div class="msc-info-item">
+                        <h5>Methods</h5>
+                        <p>Lithofacies, petrography, GR/SP/resistivity logs, seismic</p>
+                    </div>
+                    <div class="msc-info-item">
+                        <h5>Reservoir Focus</h5>
+                        <p>Shale volume, porosity, permeability, water saturation</p>
+                    </div>
+                </div>
+
+                <div class="msc-body">
+                    <div>
+                        <h3>What the Research Investigated</h3>
+                        <p>
+                            My M.Sc. thesis examined the <strong>facies architecture and reservoir characteristics 
+                            of the Miocene rock units</strong> exposed on the east flank of the Salin Basin, within 
+                            the middle portion of the Htaukshabin Anticline. The stratigraphic column in the study 
+                            area spans the Padaung Formation (Middle Oligocene), Okhmintaung Formation (Upper 
+                            Oligocene), Pyawbwe Formation (Lower Miocene), Kyaukkok Formation (Middle Miocene), 
+                            and the Irrawaddy Formation (Pliocene–Pleistocene).
+                        </p>
+                        <p>
+                            The work integrated outcrop lithofacies analysis, petrography (thin-section study 
+                            of sandstones and clay mineral identification), electrofacies analysis from GR/SP/ 
+                            resistivity logs of well H-595, and reinterpretation of 2D seismic lines (KNP-7, 
+                            MH-1, MH-2, HS-1). The structural style was resolved as a positive flower-shape 
+                            inversion anticline controlled by the East Hading Reverse Fault.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Key Contributions</h3>
+                        <ul>
+                            <li>Identified and interpreted multiple lithofacies across the Pyawbwe, Kyaukkok and Irrawaddy Formations — from prodelta/shelf shales to distributary channel and tidal flat sandstones.</li>
+                            <li>Used GR log motifs (after Cant, 1992 and Rider, 1999) to recognise progradation, retrogradation, aggradation and petrograding/retrograding patterns in the proven reservoirs.</li>
+                            <li>Calculated shale volume (Vsh) using the Larionov (1969) formula, and porosity, permeability and water saturation from resistivity logs using Archie-based relations.</li>
+                            <li>Volumetrically estimated Initial Oil In Place (IOIP) and Initial Gas In Place (IGIP) for the Kyaukkok and Padaung reservoirs.</li>
+                            <li>Suggested the <strong>footwall portion of the East Hading Reverse Fault</strong> as a favourable, untested hydrocarbon trap — recommending appraisal drilling.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= CREDENTIALS: certifications with real links ================= -->
+            <div class="cred-grid">
+                <div class="cred-card">
+                    <h2>📜 Certifications &amp; Training</h2>
+                    <ul class="cert-list">
+
+                        <!-- Well Activities — Facebook Group link -->
+                        <li>
+                            <a href="https://www.facebook.com/groups/688062048065028/" target="_blank" rel="noopener">
+                                <div class="cert-logo">
+                                    <span style="font-size:1.5rem;">🛢️</span>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>Well Activities — Well Completion &amp; Well Servicing</h4>
+                                    <p>Training programme — Well Operations</p>
+                                </div>
+                                <span class="cert-arrow">↗</span>
+                            </a>
+                        </li>
+
+                        <!-- AutoCAD -->
+                        <li>
+                            <a href="https://www.autodesk.com/products/autocad/overview" target="_blank" rel="noopener">
+                                <div class="cert-logo">
+                                    <img src="https://damassets.autodesk.net/content/dam/autodesk/www/Company/logo/autodesk-logo-black.png"
+                                         alt="Autodesk"
+                                         onerror="this.parentElement.innerHTML='<span style=&quot;font-weight:800;color:#0b2a4e;font-size:0.75rem;&quot;>ACAD</span>'">
+                                </div>
+                                <div class="cert-info">
+                                    <h4>AutoCAD Intermediate</h4>
+                                    <p>Autodesk — Official Product Training</p>
+                                </div>
+                                <span class="cert-arrow">↗</span>
+                            </a>
+                        </li>
+
+                        <!-- IWCF Level 1 — iwcf.org -->
+                        <li>
+                            <a href="https://www.iwcf.org/" target="_blank" rel="noopener">
+                                <div class="cert-logo">
+                                    <span style="font-weight:800;color:#0b2a4e;font-size:0.7rem;text-align:center;line-height:1.1;">IWCF<br>Level 1</span>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>IWCF Level 1 — Well Control</h4>
+                                    <p>International Well Control Forum</p>
+                                </div>
+                                <span class="cert-arrow">↗</span>
+                            </a>
+                        </li>
+
+                        <!-- Directional Drilling — KWS -->
+                        <li>
+                            <a href="https://www.kws.tn/" target="_blank" rel="noopener">
+                                <div class="cert-logo">
+                                    <span style="font-weight:800;color:#1e4d7a;font-size:0.85rem;">KWS</span>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>Directional Drilling</h4>
+                                    <p>KWS — Oil &amp; Gas eLearning</p>
+                                </div>
+                                <span class="cert-arrow">↗</span>
+                            </a>
+                        </li>
+
+                        <!-- Well Pressure Control — KWS -->
+                        <li>
+                            <a href="https://www.kws.tn/" target="_blank" rel="noopener">
+                                <div class="cert-logo">
+                                    <span style="font-weight:800;color:#1e4d7a;font-size:0.85rem;">KWS</span>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>Well Pressure Control Assessment</h4>
+                                    <p>KWS — Oil &amp; Gas eLearning</p>
+                                </div>
+                                <span class="cert-arrow">↗</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="cred-card">
+                    <h2>🎓 Education</h2>
+                    <div class="edu-item">
+                        <h4>M.Sc. Geology (Petroleum)</h4>
+                        <div class="meta">University of Yangon · Thesis: Facies Analysis &amp; Reservoir Characterisation of Miocene Rock Units, Sinlangyi Area, Minbu District</div>
+                    </div>
+                    <div class="edu-item">
+                        <h4>B.Sc. Geology (Hons)</h4>
+                        <div class="meta">Mawlamyine University</div>
+                    </div>
+
+                    <h2 style="margin-top: 32px;">💡 Strengths</h2>
+                    <div style="display: flex; flex-direction: column; gap: 14px;">
+                        <div style="display: flex; gap: 12px; color: #2c4a64;">
+                            <span style="color: #1e6fa8; font-weight: 700;">▹</span>
+                            <span>Strong analytical and problem-solving abilities – critical thinking and innovative solutions.</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; color: #2c4a64;">
+                            <span style="color: #1e6fa8; font-weight: 700;">▹</span>
+                            <span>Collaborative team player, adept at building relationships in diverse groups.</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; color: #2c4a64;">
+                            <span style="color: #1e6fa8; font-weight: 700;">▹</span>
+                            <span>Excellent verbal and written communication, including effective presentations.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============ TAB: CONTACT ============ -->
+    <div id="contact" class="tab-panel">
+        <div class="container" style="padding-top: 40px;">
+            <div class="contact-wrapper">
+
+                <div class="contact-card">
+                    <h2>Get in Touch</h2>
+
+                    <div class="contact-detail">
+                        <div class="icon">📧</div>
+                        <div class="info">
+                            <h4>Email</h4>
+                            <a href="mailto:aungmyatthein.geology@gmail.com">aungmyatthein.geology@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="icon">📞</div>
+                        <div class="info">
+                            <h4>Phone</h4>
+                            <a href="tel:+959759714138">+95 9 759 714 138</a><br>
+                            <a href="tel:+959421101445">+95 9 421 101 445</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="icon">📍</div>
+                        <div class="info">
+                            <h4>Location</h4>
+                            <p>No.178, Thukhamying 4St, 8Qtr, Hlaing Tsp, Yangon, Myanmar</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="icon">🔗</div>
+                        <div class="info">
+                            <h4>LinkedIn</h4>
+                            <p>Aung Myat Thein</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h2>Open to Opportunities</h2>
+                    <p style="color: #2c4a64; font-size: 1rem; margin-bottom: 20px;">
+                        I am always happy to discuss geoscience projects, potential collaborations, 
+                        or roles in petroleum geology, geotechnical engineering, and exploration. 
+                        Reach out by email or phone — I respond quickly.
+                    </p>
+                    <p style="color: #2c4a64; font-size: 1rem; margin-bottom: 20px;">
+                        Whether you need subsurface interpretation, well planning support, 
+                        CPT analysis, or field geology expertise, I would be glad to hear from you.
+                    </p>
+                    <a href="mailto:aungmyatthein.geology@gmail.com" 
+                       style="display:inline-flex; align-items:center; gap:8px; background:#1e4d7a; color:#fff; padding:14px 28px; border-radius:50px; font-weight:600; font-size:1rem; text-decoration:none; box-shadow:0 6px 18px rgba(30,77,122,0.3); transition:all 0.2s;"
+                       onmouseover="this.style.background='#0b2a4e'; this.style.transform='translateY(-2px)';"
+                       onmouseout="this.style.background='#1e4d7a'; this.style.transform='translateY(0)';">
+                        ✉️ Send me an email
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <div class="footer">
+        <div class="container">
+            <p>© Aung Myat Thein – Geologist · <a href="mailto:aungmyatthein.geology@gmail.com">aungmyatthein.geology@gmail.com</a> · +95 9 759 714 138</p>
+            <p style="margin-top: 12px; font-size: 0.8rem; color: #5b7f9e;">
+                Company references: 
+                <a href="https://hnaoilandgas.com" target="_blank">HNA</a> · 
+                <a href="https://mbccd.com" target="_blank">MBCCD</a> · 
+                <a href="https://interraresources.com" target="_blank">Interra Resources</a> · 
+                <a href="https://mprlexp.com" target="_blank">MPRL E&amp;P</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ============ TAB SCRIPT ============ -->
+    <script>
+        (function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.tab-panel');
+
+            function switchTab(tabId) {
+                tabs.forEach(btn => btn.classList.remove('active'));
+                panels.forEach(panel => panel.classList.remove('active'));
+
+                const activeBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+                const activePanel = document.getElementById(tabId);
+
+                if (activeBtn) activeBtn.classList.add('active');
+                if (activePanel) activePanel.classList.add('active');
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            tabs.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            const subBtns = document.querySelectorAll('.sub-tab-btn');
+            const subPanels = document.querySelectorAll('.sub-panel');
+
+            function switchSubTab(subId) {
+                subBtns.forEach(btn => btn.classList.remove('active'));
+                subPanels.forEach(panel => panel.classList.remove('active'));
+
+                const activeBtn = document.querySelector(`.sub-tab-btn[data-sub="${subId}"]`);
+                const activePanel = document.getElementById(subId);
+
+                if (activeBtn) activeBtn.classList.add('active');
+                if (activePanel) activePanel.classList.add('active');
+
+                const subTabsBar = document.querySelector('.sub-tabs');
+                if (subTabsBar) {
+                    const yOffset = subTabsBar.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({ top: yOffset, behavior: 'smooth' });
+                }
+            }
+
+            subBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const subId = btn.getAttribute('data-sub');
+                    switchSubTab(subId);
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
