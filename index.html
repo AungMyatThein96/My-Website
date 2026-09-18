@@ -855,21 +855,20 @@
         .mapg-5 { background-image: url('images/mapg-5.jpg'), url('https://api.microlink.io/?url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Jg1Haxuo9%2F&screenshot=true&meta=false&embed=screenshot.url'); }
 
         /* ---------- TOOL OUTPUT IMAGES ---------- */
-        .cpt-1  { background-image: url('images/tools/python-1.png'); }
-        .cpt-2  { background-image: url('images/tools/python-2.png'); }
-        .cpt-3  { background-image: url('images/tools/python-3.png'); }
-        .cpt-4  { background-image: url('images/tools/python-4.png'); }        
+        .cpt-1  { background-image: url('images/python-1.png'); }
+        .cpt-2  { background-image: url('images/python-2.png'); }
+        .cpt-3  { background-image: url('images/python-3.png'); }
+        .cpt-4  { background-image: url('images/python-4.png'); }
+        .cpt-5  { background-image: url('images/python-5.png'); }     
 
-        .segy-1 { background-image: url('images/tools/segy-1.png'); }
+        .las-1  { background-image: url('images/LAS-1.png'); }
+        .las-2  { background-image: url('images/Las-2.png'); }
 
-        .las-1  { background-image: url('images/tools/las-1.png'); }
-        .las-2  { background-image: url('images/tools/las-2.png'); }
+        .lag-1  { background-image: url('images/Lag-1.png'); }
+        .lag-2  { background-image: url('images/Lag-2.png'); }
+        .lag-3  { background-image: url('images/Lag-3.png'); }
 
-        .lag-1  { background-image: url('images/tools/lag-1.png'); }
-        .lag-2  { background-image: url('images/tools/lag-2.png'); }
-        .lag-3  { background-image: url('images/tools/lag-3.png'); }
-
-        .corr-1 { background-image: url('images/tools/corr-1.png'); }
+        .corr-1 { background-image: url('images/corr-1.png'); }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 900px) {
@@ -1526,8 +1525,8 @@
         <div class="project-detail">
             <div class="project-detail-header">
                 <div>
-                    <h2>Python for CPT &amp; Earthquake Data Analysis</h2>
-                    <div class="company-name">Python · Desktop Toolkit</div>
+                    <h2>Python for CPT &amp; Earthquake Data visualization</h2>
+                    <div class="company-name">Python Toolkit</div>
                 </div>
                 <div class="role-badge">Developer</div>
             </div>
@@ -1542,11 +1541,11 @@
                         </div>
                         <div class="tech-grid-item">
                             <h5>Purpose</h5>
-                            <p>CPT &amp; earthquake data analysis</p>
+                            <p>CPT, earthquake &amp; SEGY data analysis</p>
                         </div>
                         <div class="tech-grid-item">
                             <h5>Outputs</h5>
-                            <p>plots, DR &amp; friction angle, pga</p>
+                            <p>DR, friction angle, pga plots &amp; profile</p>
                         </div>
                         <div class="tech-grid-item">
                             <h5>Platform</h5>
@@ -1569,69 +1568,15 @@
                     <div class="g-item g-1 cpt-1"></div>
                     <div class="g-item g-2 cpt-2"></div>
                     <div class="g-item g-3 cpt-3"></div>
-                    <div class="g-item g-4 cpt-4"></div>                    
+                    <div class="g-item g-4 cpt-4"></div>
+                    <div class="g-item g-4 cpt-5"></div>                  
                 </div>
 
                 <div class="highlight-box">
                     <p>💡 The value: turning raw CPT files into decision-ready geotechnical output in seconds instead of hours.</p>
                 </div>
             </div>
-        </div>
-
-        <!-- ================= TOOL 2: SEG-Y Viewer ================= -->
-        <div class="project-detail">
-            <div class="project-detail-header">
-                <div>
-                    <h2>SEG-Y Viewer</h2>
-                    <div class="company-name">Python · Desktop Viewer</div>
-                </div>
-                <div class="role-badge">Developer</div>
-            </div>
-            <div class="project-detail-body">
-
-                <div class="tech-brief">
-                    <h3><span class="tb-icon">📋</span>Tool Info</h3>
-                    <div class="tech-grid">
-                        <div class="tech-grid-item">
-                            <h5>Language</h5>
-                            <p>Python</p>
-                        </div>
-                        <div class="tech-grid-item">
-                            <h5>Purpose</h5>
-                            <p>Inspect SEG-Y seismic files</p>
-                        </div>
-                        <div class="tech-grid-item">
-                            <h5>Features</h5>
-                            <p>Trace view, header view, quick QC</p>
-                        </div>
-                        <div class="tech-grid-item">
-                            <h5>Platform</h5>
-                            <p>Desktop</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-body-text">
-                    <p>
-                        A lightweight viewer for SEG-Y seismic data files. Load, browse, and inspect
-                        seismic traces and headers without needing expensive commercial software —
-                        useful for quick QC, teaching, and small exploration projects.
-                    </p>
-                </div>
-
-                <div class="gallery-grid">
-                    <div class="g-item g-hero segy-1"></div>
-                    <div class="g-item g-2 segy-2"></div>
-                    <div class="g-item g-3 segy-3"></div>
-                    <div class="g-item g-4 segy-4"></div>
-                    <div class="g-item g-5 segy-5"></div>
-                </div>
-
-                <div class="highlight-box">
-                    <p>💡 The value: opens up seismic data inspection to anyone — no commercial license required.</p>
-                </div>
-            </div>
-        </div>
+        </div>               
 
         <!-- ================= TOOL 3: LAS Log Viewer ================= -->
         <div class="project-detail">
@@ -1675,11 +1620,8 @@
                 </div>
 
                 <div class="gallery-grid">
-                    <div class="g-item g-hero las-1"></div>
-                    <div class="g-item g-2 las-2"></div>
-                    <div class="g-item g-3 las-3"></div>
-                    <div class="g-item g-4 las-4"></div>
-                    <div class="g-item g-5 las-5"></div>
+                    <div class="g-item g-1 las-1"></div>
+                    <div class="g-item g-2 las-2"></div>                    
                 </div>
 
                 <div class="highlight-box">
@@ -1730,11 +1672,9 @@
                 </div>
 
                 <div class="gallery-grid">
-                    <div class="g-item g-1 lag-1"></div>
+                    <div class="g-item g-hero lag-1"></div>
                     <div class="g-item g-2 lag-2"></div>
-                    <div class="g-item g-3 lag-3"></div>
-                    <div class="g-item g-4 lag-4"></div>
-                    <div class="g-item g-5 lag-5"></div>
+                    <div class="g-item g-3 lag-3"></div>        
                 </div>
 
                 <div class="highlight-box">
@@ -1785,11 +1725,8 @@
                 </div>
 
                 <div class="gallery-grid">
-                    <div class="g-item g-hero corr-1"></div>
-                    <div class="g-item g-2 corr-2"></div>
-                    <div class="g-item g-3 corr-3"></div>
-                    <div class="g-item g-4 corr-4"></div>
-                    <div class="g-item g-5 corr-5"></div>
+                    <div class="g-item g-1 corr-1"></div>
+                    <div class="g-item g-2 corr-2"></div>                    
                 </div>
 
                 <div class="highlight-box">
