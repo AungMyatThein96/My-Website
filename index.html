@@ -882,235 +882,11 @@
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 200px 130px 130px;
             }
-            /* ---------- AUTO-ADJUSTING IMAGE GRID ---------- */
-            .photo-grid {
-                display: grid;
-                gap: 8px;
-                margin-bottom: 32px;
-                border-radius: 20px;
-                overflow: hidden;
-                /* Default: works for 4+ images */
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                grid-auto-rows: 160px;
-            }
-
-            .photo-grid .g-item {
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-color: #1e3a5f;
-                cursor: zoom-in;
-                transition: transform 0.35s, filter 0.35s;
-                filter: brightness(1.05) contrast(1.08) saturate(1.1);
-                position: relative;
-            }
-
-            .photo-grid .g-item:hover {
-                transform: scale(1.03);
-                filter: brightness(1.1) contrast(1.1) saturate(1.15);
-                z-index: 1;
-            }
-
-            /* Featured first image — spans 2 columns and 2 rows when there are 4+ images */
-            .photo-grid .g-hero {
-                grid-column: span 2;
-                grid-row: span 2;
-            }
-
-            /* --- Layouts by number of images --- */
-
-            /* 1 image: full width, taller */
-            .photo-grid[data-count="1"] {
-                grid-template-columns: 1fr;
-                grid-auto-rows: 320px;
-            }
-            .photo-grid[data-count="1"] .g-hero {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-
-            /* 2 images: side by side */
-            .photo-grid[data-count="2"] {
-                grid-template-columns: 1fr 1fr;
-                grid-auto-rows: 260px;
-            }
-            .photo-grid[data-count="2"] .g-hero {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-
-            /* 3 images: 1 large + 2 stacked */
-            .photo-grid[data-count="3"] {
-                grid-template-columns: 2fr 1fr;
-                grid-auto-rows: 140px;
-            }
-            .photo-grid[data-count="3"] .g-hero {
-                grid-column: 1;
-                grid-row: span 2;
-            }
-
-            /* 4 images: 1 large + 3 small */
-            .photo-grid[data-count="4"] {
-                grid-template-columns: 2fr 1fr 1fr;
-                grid-auto-rows: 160px;
-            }
-
-            /* 5 images: 1 large + 4 small (your current look) */
-            .photo-grid[data-count="5"] {
-                grid-template-columns: 2fr 1fr 1fr;
-                grid-auto-rows: 160px;
-            }
-
-            /* 6 images: 2 rows of 3 */
-            .photo-grid[data-count="6"] {
-                grid-template-columns: repeat(3, 1fr);
-                grid-auto-rows: 180px;
-            }
-            .photo-grid[data-count="6"] .g-hero {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-
-            /* ---------- LIGHTBOX ---------- */
-            .lightbox {
-                display: none;
-                position: fixed;
-                inset: 0;
-                z-index: 9999;
-                background: rgba(5, 15, 25, 0.94);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
-                align-items: center;
-                justify-content: center;
-                padding: 40px 20px;
-                animation: lbFade 0.25s ease;
-            }
-            .lightbox.active { display: flex; }
-
-            @keyframes lbFade {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-
-            .lightbox img {
-                max-width: 92vw;
-                max-height: 88vh;
-                object-fit: contain;
-                border-radius: 12px;
-                box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
-                animation: lbZoom 0.3s ease;
-                user-select: none;
-                -webkit-user-drag: none;
-            }
-
-            @keyframes lbZoom {
-                from { transform: scale(0.92); opacity: 0; }
-                to { transform: scale(1); opacity: 1; }
-            }
-
-            .lightbox-close {
-                position: absolute;
-                top: 20px;
-                right: 24px;
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.12);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                color: #fff;
-                font-size: 1.6rem;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: background 0.2s, transform 0.2s;
-                line-height: 1;
-            }
-            .lightbox-close:hover {
-                background: rgba(255, 255, 255, 0.25);
-                transform: scale(1.1);
-            }
-
-            .lightbox-nav {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.12);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                color: #fff;
-                font-size: 1.8rem;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: background 0.2s, transform 0.2s;
-                line-height: 1;
-            }
-            .lightbox-nav:hover {
-                background: rgba(255, 255, 255, 0.25);
-            }
-            .lightbox-prev { left: 20px; }
-            .lightbox-next { right: 20px; }
-
-            .lightbox-caption {
-                position: absolute;
-                bottom: 24px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: #d2e5fa;
-                font-size: 0.9rem;
-                font-weight: 500;
-                background: rgba(0, 0, 0, 0.4);
-                padding: 8px 20px;
-                border-radius: 40px;
-                white-space: nowrap;
-                max-width: 90vw;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .lightbox-counter {
-                position: absolute;
-                top: 28px;
-                left: 28px;
-                color: #d2e5fa;
-                font-size: 0.85rem;
-                font-weight: 600;
-                background: rgba(0, 0, 0, 0.4);
-                padding: 6px 16px;
-                border-radius: 40px;
-            }
-
-            @media (max-width: 600px) {
-                .lightbox-nav {
-                    width: 44px;
-                    height: 44px;
-                    font-size: 1.4rem;
-                }
-                .lightbox-prev { left: 8px; }
-                .lightbox-next { right: 8px; }
-                .lightbox-close {
-                    width: 40px;
-                    height: 40px;
-                    font-size: 1.3rem;
-                    top: 12px;
-                    right: 12px;
-                }
-                .lightbox-counter {
-                    top: 16px;
-                    left: 16px;
-                    font-size: 0.78rem;
-                    padding: 4px 12px;
-                }
-                .lightbox-caption {
-                    font-size: 0.8rem;
-                    padding: 6px 14px;
-                    bottom: 16px;
-                }
-            }
+            .gallery-grid .g-hero { grid-column: span 2; grid-row: 1; }
+            .gallery-grid .g-2 { grid-column: 1; grid-row: 2; }
+            .gallery-grid .g-3 { grid-column: 2; grid-row: 2; }
+            .gallery-grid .g-4 { grid-column: 1; grid-row: 3; }
+            .gallery-grid .g-5 { grid-column: 2; grid-row: 3; }
             .project-detail-header { padding: 24px 26px; }
             .project-detail-body { padding: 26px 26px 30px; }
             .msc-block { padding: 32px 26px; }
@@ -1132,6 +908,236 @@
             .msc-block { padding: 26px 20px; }
             .msc-block h2 { font-size: 1.35rem; }
         }
+        /* ---------- AUTO-ADJUSTING IMAGE GRID ---------- */
+        .photo-grid {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 32px;
+            border-radius: 20px;
+            overflow: hidden;
+            /* Default: works for 4+ images */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-auto-rows: 160px;
+        }
+
+        .photo-grid .g-item {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #1e3a5f;
+            cursor: zoom-in;
+            transition: transform 0.35s, filter 0.35s;
+            filter: brightness(1.05) contrast(1.08) saturate(1.1);
+            position: relative;
+        }
+
+        .photo-grid .g-item:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1) contrast(1.1) saturate(1.15);
+            z-index: 1;
+        }
+
+        /* Featured first image — spans 2 columns and 2 rows when there are 4+ images */
+        .photo-grid .g-hero {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* --- Layouts by number of images --- */
+
+        /* 1 image: full width, taller */
+        .photo-grid[data-count="1"] {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 320px;
+        }
+        .photo-grid[data-count="1"] .g-hero {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* 2 images: side by side */
+        .photo-grid[data-count="2"] {
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 260px;
+        }
+        .photo-grid[data-count="2"] .g-hero {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* 3 images: 1 large + 2 stacked */
+        .photo-grid[data-count="3"] {
+            grid-template-columns: 2fr 1fr;
+            grid-auto-rows: 140px;
+        }
+        .photo-grid[data-count="3"] .g-hero {
+            grid-column: 1;
+            grid-row: span 2;
+        }
+
+        /* 4 images: 1 large + 3 small */
+        .photo-grid[data-count="4"] {
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-auto-rows: 160px;
+        }
+
+        /* 5 images: 1 large + 4 small (your current look) */
+        .photo-grid[data-count="5"] {
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-auto-rows: 160px;
+        }
+
+        /* 6 images: 2 rows of 3 */
+        .photo-grid[data-count="6"] {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 180px;
+        }
+        .photo-grid[data-count="6"] .g-hero {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* ---------- LIGHTBOX ---------- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5, 15, 25, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            animation: lbFade 0.25s ease;
+        }
+        .lightbox.active { display: flex; }
+
+        @keyframes lbFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox img {
+            max-width: 92vw;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+            animation: lbZoom 0.3s ease;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        @keyframes lbZoom {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.6rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            line-height: 1;
+        }
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            line-height: 1;
+        }
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #d2e5fa;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 20px;
+            border-radius: 40px;
+            white-space: nowrap;
+            max-width: 90vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            top: 28px;
+            left: 28px;
+            color: #d2e5fa;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 16px;
+            border-radius: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .lightbox-nav {
+                width: 44px;
+                height: 44px;
+                font-size: 1.4rem;
+            }
+            .lightbox-prev { left: 8px; }
+            .lightbox-next { right: 8px; }
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+                top: 12px;
+                right: 12px;
+            }
+            .lightbox-counter {
+                top: 16px;
+                left: 16px;
+                font-size: 0.78rem;
+                padding: 4px 12px;
+            }
+            .lightbox-caption {
+                font-size: 0.8rem;
+                padding: 6px 14px;
+                bottom: 16px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1323,7 +1329,7 @@
                                 <div class="field-role">Assistance</div>
                             </div>
 
-                           <div class="photo-grid" data-count="5">
+                            <div class="photo-grid" data-count="5">
                                 <div class="g-item g-hero hna-1" data-caption="HNA — Shwe Pyi Tha Field"></div>
                                 <div class="g-item hna-2" data-caption="HNA — Workover site"></div>
                                 <div class="g-item hna-3" data-caption="HNA — Well location planning"></div>
@@ -2360,6 +2366,16 @@
         </div>
     </div>
 
+            <!-- ============ LIGHTBOX ============ -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-counter" id="lbCounter"></span>
+            <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+            <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Previous">‹</button>
+            <img id="lbImage" src="" alt="">
+            <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Next">›</button>
+            <div class="lightbox-caption" id="lbCaption"></div>
+        </div>
+
     <!-- ============ TAB SCRIPT ============ -->
     <script>
         (function() {
@@ -2412,6 +2428,89 @@
                     switchSubTab(subId);
                 });
             });
+
+            /* ---------- LIGHTBOX ---------- */
+                const lightbox = document.getElementById('lightbox');
+                const lbImage = document.getElementById('lbImage');
+                const lbCaption = document.getElementById('lbCaption');
+                const lbCounter = document.getElementById('lbCounter');
+                const lbClose = document.getElementById('lbClose');
+                const lbPrev = document.getElementById('lbPrev');
+                const lbNext = document.getElementById('lbNext');
+
+                let currentGroup = [];   // list of {src, caption}
+                let currentIndex = 0;
+
+                // Extract background-image URL from a .g-item
+                function getBgUrl(el) {
+                    const bg = window.getComputedStyle(el).backgroundImage;
+                    const match = bg.match(/url\(["']?(.*?)["']?\)/);
+                    return match ? match[1] : '';
+                }
+
+                function openLightbox(items, index) {
+                    currentGroup = items;
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function updateLightbox() {
+                    const item = currentGroup[currentIndex];
+                    if (!item) return;
+                    lbImage.src = item.src;
+                    lbCaption.textContent = item.caption || '';
+                    lbCaption.style.display = item.caption ? 'block' : 'none';
+                    lbCounter.textContent = `${currentIndex + 1} / ${currentGroup.length}`;
+                    lbPrev.style.display = currentGroup.length > 1 ? 'flex' : 'none';
+                    lbNext.style.display = currentGroup.length > 1 ? 'flex' : 'none';
+                }
+
+                function closeLightbox() {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+
+                function nextImage() {
+                    currentIndex = (currentIndex + 1) % currentGroup.length;
+                    updateLightbox();
+                }
+
+                function prevImage() {
+                    currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+                    updateLightbox();
+                }
+
+                // Attach click handlers to every image in every photo-grid
+                document.querySelectorAll('.photo-grid').forEach(grid => {
+                    const items = Array.from(grid.querySelectorAll('.g-item')).map(el => ({
+                        src: getBgUrl(el),
+                        caption: el.getAttribute('data-caption') || ''
+                    }));
+
+                    grid.querySelectorAll('.g-item').forEach((el, i) => {
+                        el.addEventListener('click', () => openLightbox(items, i));
+                    });
+                });
+
+                // Controls
+                lbClose.addEventListener('click', closeLightbox);
+                lbNext.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+                lbPrev.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+
+                // Click outside image closes
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+
+                // Keyboard support
+                document.addEventListener('keydown', (e) => {
+                    if (!lightbox.classList.contains('active')) return;
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowRight') nextImage();
+                    if (e.key === 'ArrowLeft') prevImage();
+                });
         })();
     </script>
 
